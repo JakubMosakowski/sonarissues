@@ -1,3 +1,5 @@
+import org.gradle.configurationcache.extensions.capitalized
+
 plugins {
     id("jacoco")
 }
@@ -32,30 +34,36 @@ fun getCoverageExcludeFiles(): List<String> = listOf(
 )
 rootProject.extra.set("coverageExcludeFiles", getCoverageExcludeFiles())
 
-tasks.register<JacocoReport>("customJacocoTestReport") {
+tasks.register<JacocoReport>("jacocoTestReport") {
     group = "verification"
     description = "Code coverage report for debug unit tests."
 
-    val classDirectoriesFileTrees = subprojects.map { project ->
-        val javaDebugTree =
-            fileTree(baseDir = "${project.buildDir}/intermediates/javac/debug/classes/") {
-                exclude(getCoverageExcludeFiles())
-            }
-        val kotlinDebugTree =
-            fileTree(baseDir = "${project.buildDir}/tmp/kotlin-classes/debug") {
-                exclude(getCoverageExcludeFiles())
-            }
+    val variants = listOf("debug", "saltyDebug")
 
-        listOf(javaDebugTree, kotlinDebugTree)
-    }
+    val classDirectoriesFileTrees = subprojects.map { project ->
+        variants.map { variant ->
+            val javaDebugTree =
+                fileTree(baseDir = "${project.buildDir}/intermediates/javac/$variant/classes/") {
+                    exclude(getCoverageExcludeFiles())
+                }
+            val kotlinDebugTree =
+                fileTree(baseDir = "${project.buildDir}/tmp/kotlin-classes/$variant") {
+                    exclude(getCoverageExcludeFiles())
+                }
+
+            listOf(javaDebugTree, kotlinDebugTree)
+        }
+    }.flatten()
 
     val sourceDirectoriesFileTrees = subprojects.map { project ->
         listOf("${project.projectDir}/src/main/java", "${project.projectDir}/src/main/kotlin")
     }
 
     val executionDataFileTrees = subprojects.map { project ->
-        "${project.buildDir}/jacoco/testDebugUnitTest.exec"
-    }
+        variants.map { variant ->
+            "${project.buildDir}/jacoco/test${variant.capitalized()}UnitTest.exec"
+        }
+    }.flatten()
 
     println(classDirectoriesFileTrees.flatten())
     println(sourceDirectoriesFileTrees.flatten())

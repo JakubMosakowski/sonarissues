@@ -4,6 +4,12 @@ plugins {
 
 android {
     namespace = "com.mosjak.sonarissue.app"
+
+    flavorDimensions += "taste"
+    productFlavors {
+        create("sweet")
+        create("salty")
+    }
 }
 
 dependencies {

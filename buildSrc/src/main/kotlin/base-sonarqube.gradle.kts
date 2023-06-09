@@ -6,13 +6,13 @@ sonar {
     properties {
         val coverageExcludeFiles = rootProject.extra.get("coverageExcludeFiles") as List<*>
 
-        property("sonar.projectKey", System.getenv("SONAR_PROJECT_KEY2"))
-        property("sonar.host.url", System.getenv("SONAR_URL2"))
-        property("sonar.login", System.getenv("SONAR_TOKEN2"))
+        property("sonar.projectKey", System.getenv("PRIVATE_SONAR_PROJECT_KEY"))
+        property("sonar.host.url", System.getenv("PRIVATE_SONAR_HOST_URL"))
+        property("sonar.login", System.getenv("PRIVATE_SONAR_TOKEN"))
         property("sonar.core.codeCoveragePlugin", "jacoco")
         property(
             "sonar.coverage.jacoco.xmlReportPaths",
-            "${project.buildDir}/reports/jacoco/jacocoTestReport/jacocoEnterpriseTestReport.xml"
+            "${project.buildDir}/reports/jacoco/jacocoTestReport/jacocoTestReport.xml"
         )
         property(
             "sonar.coverage.exclusions",
