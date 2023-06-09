@@ -12,6 +12,5 @@ buildscript {
     }
 }
 
-
 apply(from = "$rootDir/jacoco/configure-jacoco.gradle.kts")
-//apply(plugin = "base-sonarqube")
+apply(plugin = "base-sonarqube")
