@@ -65,10 +65,6 @@ tasks.register<JacocoReport>("jacocoTestReport") {
         }
     }.flatten()
 
-    println(classDirectoriesFileTrees.flatten())
-    println(sourceDirectoriesFileTrees.flatten())
-    println(executionDataFileTrees)
-
     classDirectories.setFrom(files(classDirectoriesFileTrees.flatten()))
     sourceDirectories.setFrom(files(sourceDirectoriesFileTrees.flatten()))
     executionData.setFrom(files(executionDataFileTrees))

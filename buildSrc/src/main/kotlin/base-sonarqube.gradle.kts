@@ -8,7 +8,7 @@ sonar {
 
         property("sonar.projectKey", System.getenv("PRIVATE_SONAR_PROJECT_KEY"))
         property("sonar.host.url", System.getenv("PRIVATE_SONAR_HOST_URL"))
-        property("sonar.login", System.getenv("PRIVATE_SONAR_TOKEN"))
+        property("sonar.token", System.getenv("PRIVATE_SONAR_TOKEN"))
         property("sonar.core.codeCoveragePlugin", "jacoco")
         property(
             "sonar.coverage.jacoco.xmlReportPaths",
