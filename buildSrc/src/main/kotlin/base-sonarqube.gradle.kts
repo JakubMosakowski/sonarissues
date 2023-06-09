@@ -12,7 +12,7 @@ sonar {
         property("sonar.core.codeCoveragePlugin", "jacoco")
         property(
             "sonar.coverage.jacoco.xmlReportPaths",
-            "${project.buildDir}/reports/jacoco/jacocoEnterpriseTestReport/jacocoEnterpriseTestReport.xml"
+            "${project.buildDir}/reports/jacoco/jacocoTestReport/jacocoEnterpriseTestReport.xml"
         )
         property(
             "sonar.coverage.exclusions",

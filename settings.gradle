@@ -12,5 +12,6 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "Sonar Issue project"
+rootProject.name = "SonarIssues"
 include ':app'
+include ':utils'

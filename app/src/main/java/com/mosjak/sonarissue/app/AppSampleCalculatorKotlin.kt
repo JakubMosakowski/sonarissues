@@ -1,6 +1,6 @@
-package com.mosjak.sonarissue
+package com.mosjak.sonarissue.app
 
-class SampleCalculatorKotlin {
+class AppSampleCalculatorKotlin {
 
     fun add(a: Int, b: Int) = a + b
 

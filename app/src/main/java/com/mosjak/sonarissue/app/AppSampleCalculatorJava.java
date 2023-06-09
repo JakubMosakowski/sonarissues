@@ -1,6 +1,6 @@
-package com.mosjak.sonarissue;
+package com.mosjak.sonarissue.app;
 
-public class SampleCalculatorJava {
+public class AppSampleCalculatorJava {
 
     int add(int a, int b) {
         return a + b;

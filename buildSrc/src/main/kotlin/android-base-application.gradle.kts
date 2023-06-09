@@ -13,12 +13,6 @@ android {
         targetSdk = 29
     }
 
-    packagingOptions {
-        resources.excludes.add("META-INF/*")
-        resources.excludes.add("**/LICENSE.txt")
-        resources.excludes.add("**/README.txt")
-    }
-
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
