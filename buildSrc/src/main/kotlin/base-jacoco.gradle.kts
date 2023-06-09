@@ -27,10 +27,7 @@ fun getCoverageExcludeFiles(): List<String> = listOf(
     "**/di/**",
     "**/widget/**",
     "**/*ModuleKt.*",
-    "**/presentation/**/*Adapter.*",
-    "**/presentation/**/*AdapterImpl.*",
     "**/*View.*",
-    "**/network/rest/model/**",
 )
 rootProject.extra.set("coverageExcludeFiles", getCoverageExcludeFiles())
 
