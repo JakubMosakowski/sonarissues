@@ -12,9 +12,5 @@ dependencies {
     gradleApi()
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.20")
     implementation("com.android.tools.build:gradle:7.3.1")
-    implementation("org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:4.2.0.3129")
-}
-
-kotlinDslPluginOptions {
-    jvmTarget.set("11")
+    implementation("org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:4.2.1.3168")
 }
